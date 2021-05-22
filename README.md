@@ -21,7 +21,7 @@ Allow users to search for flight information, such as callsigns, altitude, headi
  ## Out Of Scope
  - No commerical purchase options will be included in this site
  
- ##Tech To Use
+ ## Tech To Use
  - HTML5
  - CSS3
  - JavaScript
