@@ -19,12 +19,13 @@ Allow users to search for flight information, such as callsigns, altitude, headi
   - search result information to be displayed from the Opensky Network API
   
  ## Out Of Scope
- - No commerical purchase options will be included in this site
+ - No commerical ticket search or purchase options will be included in this site
+ - No reliable tracking of non-commerical, military, light or small aircraft will be included in this site
  
  ## Tech To Use
  - HTML5
  - CSS3
  - JavaScript
- - Google Maps
+ - Leaflet.js
  - Countup.js
  - Opensky Network API
