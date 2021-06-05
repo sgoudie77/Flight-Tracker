@@ -9,8 +9,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- set div for leaflet map -->
     <div id="map"></div>
+    
+    <!-- navbar section -->
+    <div class="navbar">
+        <a href="#"><img class="logo nav-item" src="logo.png" alt="logo"></a>
+        <nav>
+            <ul>
+                <li><a class="nav_item" href="flights.html">Flights</a></li>
+                <li><a class="nav_item" href="airports.html">Airports</a></li>
+                <li><a class="nav_item" href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </div>
 
+    <!-- total number of flights displayed -->
+    <div>
+        <p id="stats">Total Flights Tracked: <span id="total"></span></p>
+    </div>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="script.js"></script>
 </body>

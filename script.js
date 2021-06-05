@@ -1,5 +1,5 @@
 // Set the starting map position and zoom ([lat, lon], zoom-level)
-var map = L.map('map').setView([58.63121664342478, -93.77929687500001], 4);
+var map = L.map('map').setView([58.63121664342478, -93.77929687500001], 3);
 
 // Add a default map from Map Tiler
 streets = L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=CFUEyunMBd2JLEvHOg9L', {
@@ -13,4 +13,25 @@ map.on('click', function(e){
     var lat = coord.lat;
     var lng = coord.lng;
     console.log("You clicked the map at latitude and longitude: " + lat + ", " + lng);
-    });
+});
+
+//Set variable for all flights in the API array
+let flights = "https://opensky-network.org/api/states/all";
+
+//Set variable for total flights
+let totalResults = flights.length;
+
+//Display number of total flights using a div id
+document.getElementById('total').innerHTML = totalResults;
+
+//Set the icon for each active flight
+var aircraftTracked = L.icon ({
+  iconUrl: 'ac-black.png',
+  iconSize: [24, 18]
+});
+
+//Loop through the array and set an icon for each flight using the lat and lon coords of each object
+for (var i = 0; i < flights.length; i++) {
+  var displayedFlight = new L.marker([flights[i][5],flights[i][6]], {icon: aircraftTracked}).addTo(map)
+  .bindPopup(flights[i][1],flights[i][2],flights[i][7]);
+}

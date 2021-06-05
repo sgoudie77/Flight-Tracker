@@ -21,6 +21,9 @@ Allow users to search for flight information, such as callsigns, altitude, headi
  ## Out Of Scope
  - No commerical ticket search or purchase options will be included in this site
  - No reliable tracking of non-commerical, military, light or small aircraft will be included in this site
+
+## Limitations
+- This app can only retrieve data with a time resultion of 5 seconds according to the limitations of use of the OpenSky Netowrk API, so flights are not tracked and displayed exactly in real time.
  
  ## Tech To Use
  - HTML5
