@@ -15,23 +15,37 @@ map.on('click', function(e){
     console.log("You clicked the map at latitude and longitude: " + lat + ", " + lng);
 });
 
-//Set variable for all flights in the API array
-let flights = "https://opensky-network.org/api/states/all";
-
-//Set variable for total flights
-let totalResults = flights.length;
-
-//Display number of total flights using a div id
-document.getElementById('total').innerHTML = totalResults;
-
-//Set the icon for each active flight
-var aircraftTracked = L.icon ({
-  iconUrl: 'ac-black.png',
-  iconSize: [24, 18]
-});
-
-//Loop through the array and set an icon for each flight using the lat and lon coords of each object
-for (var i = 0; i < flights.length; i++) {
-  var displayedFlight = new L.marker([flights[i][5],flights[i][6]], {icon: aircraftTracked}).addTo(map)
-  .bindPopup(flights[i][1],flights[i][2],flights[i][7]);
+async function flightsData() {
+  const apiResponse = await fetch('https://opensky-network.org/api/states/all');
+  const result = await apiResponse.json();
+  console.log(result);
+  return await result;
 }
+
+async function flightsCount(data) {
+  const flightsData = await data;
+  const counts = await flightsData.states.length;
+  console.log(counts);
+  return await counts;
+}
+
+async function displayTotalFlights(counts) {
+  //Set variable for total flights
+  const totalResults = await counts;
+  //Display number of total flights using a div id
+  document.getElementById('total').innerHTML = await totalResults;
+}
+
+displayTotalFlights(flightsCount(flightsData()));
+
+// //Set the icon for each active flight
+// var aircraftTracked = L.icon ({
+//   iconUrl: 'ac-black.png',
+//   iconSize: [24, 18]
+// });
+
+// //Loop through the array and set an icon for each flight using the lat and lon coords of each object
+// for (var i = 0; i < flights.length; i++) {
+//   var displayedFlight = new L.marker([flights[i][5],flights[i][6]], {icon: aircraftTracked}).addTo(map)
+//   .bindPopup(flights[i][1],flights[i][2],flights[i][7]);
+// }
