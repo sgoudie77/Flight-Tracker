@@ -16,13 +16,20 @@ map.on('click', function(e){
 });
 
 //Set variable for all flights in the API array
-let flights = "https://opensky-network.org/api/states/all";
+//let flights;
+//let totalResults;
+
+// fetch('https://opensky-network.org/api/states/all')
+//   .then(response => response.json())
+//   .then(data => console.log(data))
+  //.then(console.log(flights))
+  //.then(totalResults = flights.length);
 
 //Set variable for total flights
-let totalResults = flights.length;
+//let totalResults = flights.length;
 
 //Display number of total flights using a div id
-document.getElementById('total').innerHTML = totalResults;
+//document.getElementById('total').innerHTML = totalResults;
 
 //Set the icon for each active flight
 var aircraftTracked = L.icon ({
@@ -31,7 +38,81 @@ var aircraftTracked = L.icon ({
 });
 
 //Loop through the array and set an icon for each flight using the lat and lon coords of each object
-for (var i = 0; i < flights.length; i++) {
-  var displayedFlight = new L.marker([flights[i][5],flights[i][6]], {icon: aircraftTracked}).addTo(map)
-  .bindPopup(flights[i][1],flights[i][2],flights[i][7]);
+// for (var i = 0; i < flights.length; i++) {
+//   var displayedFlight = new L.marker([flights[i][5],flights[i][6]], {icon: aircraftTracked}).addTo(map)
+//   .bindPopup(flights[i][1],flights[i][2],flights[i][7]);
+// }
+
+
+// const api = {
+//   apiKey: '046713ea22076c597022482282a4f711m',
+//   base: 'http://api.aviationstack.com/v1/flights'
+// }
+
+// function getResults () {
+// fetch(`${api.base}?access_key=${api.apiKey}`)
+// .then(response => response.json())
+// .then(data => console.log(data));
+
+// function displayFlights () {
+//   let total = document.querySelector('#total');
+//   total.innerText = data.length;    
+// }
+
+  // displayFlights: function(data) {
+  //   const { total } = data.length;
+  //   document.querySelector('#total').innerHTML = "Total Flights " + total;
+  // }
+
+
+// fetch('https://opensky-network.org/api/states/all')
+//   .then(response => response.json())
+//   .then(data => console.log(data));
+
+
+// fetch('http://api.aviationstack.com/v1/flights?access_key=046713ea22076c597022482282a4f711')
+//   .then(response => response.json())
+//   .then(data => console.log(data));
+
+// let flights = {
+//    apiKey: '046713ea22076c597022482282a4f711',
+//    fetchFlights: function () {
+//     fetch('https://opensky-network.org/api/states/all')
+//     .then((response) => response.json())
+//     .then((data) => this.displayFlights(data));
+//    },
+//    displayFlights: function(data) {
+//     const { total } = data.states.length; 
+//     console.log(total);
+//     document.querySelector('#total').innerHTML = total;
+//    }
+// };
+
+async function flightsData() {
+    const apiResponse = await fetch('https://opensky-network.org/api/states/all');
+    const result = await apiResponse.json();
+    console.log(result);
+    return await result;
 }
+
+async function flightsCount(data) {
+    const flightsData = await data;
+    const counts = await flightsData.states.length;
+    console.log(counts);
+    return await counts;
+}
+
+async function displayTotalFlights(counts) {
+    const totalResults = await counts;
+    document.getElementById('total').innerHTML = await totalResults;
+}
+
+displayTotalFlights(flightsCount(flightsData()));
+
+// for (let i = 0; i < flightsData.states.length; i++) {
+//     var aircraftTracked = new L.marker(flightsData.states[i][5], flightsData.states[i][6]);
+// }
+
+var activeFlights = flightsData.states[5, 6];
+
+var displayFlights = createMarkerGroup(activeFlights);
