@@ -62,6 +62,7 @@ async function displayMarkers(data) {
 async function displayFlightsandTotal() {
   const data = await flightsData();
   const count = await flightsCount(data);
+  displayTotalFlights(count);
   displayMarkers(data);
 }
 
