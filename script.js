@@ -19,12 +19,11 @@ async function flightsData() {
   const apiResponse = await fetch('https://opensky-network.org/api/states/all');
   const result = await apiResponse.json();
   console.log(result);
-  return await result;
+  return await result.states;
 }
 
 async function flightsCount(data) {
-  const flightsData = await data;
-  const counts = await flightsData.states.length;
+  const counts = await data.length;
   console.log(counts);
   return await counts;
 }
@@ -36,16 +35,34 @@ async function displayTotalFlights(counts) {
   document.getElementById('total').innerHTML = await totalResults;
 }
 
-displayTotalFlights(flightsCount(flightsData()));
+//displayTotalFlights(flightsCount(flightsData()));
 
-// //Set the icon for each active flight
-// var aircraftTracked = L.icon ({
-//   iconUrl: 'ac-black.png',
-//   iconSize: [24, 18]
-// });
+//Set the icon for each active flight
+var aircraftTracked = L.icon ({
+  iconUrl: 'ac-black.png',
+  iconSize: [24, 18]
+});
 
-// //Loop through the array and set an icon for each flight using the lat and lon coords of each object
-// for (var i = 0; i < flights.length; i++) {
-//   var displayedFlight = new L.marker([flights[i][5],flights[i][6]], {icon: aircraftTracked}).addTo(map)
-//   .bindPopup(flights[i][1],flights[i][2],flights[i][7]);
-// }
+async function displayMarkers(data) {
+  //Loop through the array and set an icon for each flight using the lat and lon coords of each object
+  let noCoordinates = 0;
+  for (let i = 0; i < data.length; i++) {
+    if (data[i][5] != null && data[i][6] != null) {
+      console.log(data[i][6], data[i][5])
+      let displayedFlight = new L.marker([data[i][6],data[i][5]], {icon: aircraftTracked}).addTo(map)
+      .bindPopup(data[i][1],data[i][2],data[i][7]);
+    } else {
+      noCoordinates++;
+    }
+  }
+  console.log(`There are ${noCoordinates} that don't have coordinates.`)
+}
+
+//Finds flight total and display markers
+async function displayFlightsandTotal() {
+  const data = await flightsData();
+  const count = await flightsCount(data);
+  displayMarkers(data);
+}
+
+displayFlightsandTotal();
