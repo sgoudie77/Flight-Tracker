@@ -1,11 +1,16 @@
 // Set the starting map position and zoom ([lat, lon], zoom-level)
-var map = L.map('map').setView([58.63121664342478, -93.77929687500001], 3);
+var map = L.map('map').setView([58.63121664342478, -93.77929687500001], 4);
 
 // Add a default map from Map Tiler
 streets = L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=CFUEyunMBd2JLEvHOg9L', {
     attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
     crossOrigin: true
 }).addTo(map);
+
+map.fitBounds(
+  [70.31873847853124, -141.94335937500003], 
+  [41.902277040963696, -34.89257812500001]
+);
 
 // Check the coordinates of a position on click
 map.on('click', function(e){
