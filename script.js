@@ -4,7 +4,7 @@ import { CountUp } from './countUp.min.js';
 var map = L.map('map').setView([58.63121664342478, -93.77929687500001], 4);
 
 // Add a default map from Map Tiler
-streets = L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=CFUEyunMBd2JLEvHOg9L', {
+const streets = L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=CFUEyunMBd2JLEvHOg9L', {
     attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
     crossOrigin: true
 }).addTo(map);
@@ -34,7 +34,6 @@ map.on('click', function(e){
 async function flightsData() {
   const apiResponse = await fetch('https://opensky-network.org/api/states/all');
   const result = await apiResponse.json();
-  console.log(result);
   return await result.states;
 }
 
@@ -50,12 +49,17 @@ async function displayTotalFlights(counts) {
   const totalResults = await counts;
   // countUp display total number animation (id, starting point, ending point, decimal, duration)
   const options = {
+    startVal: 0,
+    decimalPlaces: 0,
+    duration: 5,
     useEasing: true,
-    separator: ';'
+    separator: ';',
+
   };
-  const countUp = new CountUp('total', 0, counts, 0, 5, options);
+  const countUp = new CountUp('total', await totalResults, options);
+  console.log(countUp);
   if (!countUp.error) {
-    countUp.start(document.getElementById('total').innerHTML = await totalResults);
+    countUp.start();
   } else {
     console.error(countUp.error);
   }
@@ -72,7 +76,6 @@ async function displayMarkers(data) {
   let noCoordinates = 0;
   for (let i = 0; i < data.length; i++) {
     if (data[i][5] != null && data[i][6] != null) {
-      console.log(data[i][6], data[i][5])
       let displayedFlight = new L.marker([data[i][6],data[i][5]], {icon: aircraftTracked}).addTo(map)
       .bindPopup(data[i][1],data[i][2],data[i][7]);
     } else {
@@ -86,7 +89,7 @@ async function displayMarkers(data) {
 async function displayFlightsandTotal() {
   const data = await flightsData();
   const count = await flightsCount(data);
-  //displayTotalFlights(count);
+  displayTotalFlights(count);
   displayMarkers(data);
 }
 
