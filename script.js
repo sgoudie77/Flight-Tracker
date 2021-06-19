@@ -51,7 +51,7 @@ async function displayTotalFlights(counts) {
   const options = {
     startVal: 0,
     decimalPlaces: 0,
-    duration: 5,
+    duration: 8,
     useEasing: true,
     separator: ';',
 
@@ -77,7 +77,9 @@ async function displayMarkers(data) {
   for (let i = 0; i < data.length; i++) {
     if (data[i][5] != null && data[i][6] != null) {
       let displayedFlight = new L.marker([data[i][6],data[i][5]], {icon: aircraftTracked}).addTo(map)
-      .bindPopup(data[i][1],data[i][2],data[i][7]);
+      .bindPopup(`<p>${data[i][1]}</p>
+                  <p>${data[i][2]}</p>
+                  <p>${data[i][7]}</p>`);
     } else {
       noCoordinates++;
     }
