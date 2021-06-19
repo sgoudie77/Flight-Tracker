@@ -1,3 +1,5 @@
+import { CountUp } from './countUp.min.js';
+
 // Set the starting map position and zoom ([lat, lon], zoom-level)
 var map = L.map('map').setView([58.63121664342478, -93.77929687500001], 4);
 
@@ -46,27 +48,18 @@ async function flightsCount(data) {
 async function displayTotalFlights(counts) {
   //Set variable for total flights
   const totalResults = await counts;
-  //Display number of total flights using a div id
-  document.getElementById('total').innerHTML = await totalResults;
+  // countUp display total number animation (id, starting point, ending point, decimal, duration)
+  const options = {
+    useEasing: true,
+    separator: ';'
+  };
+  const countUp = new CountUp('total', 0, counts, 0, 5, options);
+  if (!countUp.error) {
+    countUp.start(document.getElementById('total').innerHTML = await totalResults);
+  } else {
+    console.error(countUp.error);
+  }
 }
-
-
-
-// countUp display total number animation (id, starting point, ending point, decimal, duration)
-// var options = {
-//   useEasing: true,
-//   separator: ';'
-// };
-// var countUp = new CountUp('#total', 0, counts, 0, 5, options);
-// if (!countUp.error) {
-//   countUp.start(document.getElementById('total').innerHTML = await totalResults);
-// } else {
-//   console.error(countUp.error);
-// }
-
-
-
-//displayTotalFlights(flightsCount(flightsData()));
 
 //Set the icon for each flight reporting data
 var aircraftTracked = L.icon ({
@@ -93,7 +86,7 @@ async function displayMarkers(data) {
 async function displayFlightsandTotal() {
   const data = await flightsData();
   const count = await flightsCount(data);
-  displayTotalFlights(count);
+  //displayTotalFlights(count);
   displayMarkers(data);
 }
 
