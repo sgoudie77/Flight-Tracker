@@ -5,16 +5,16 @@
 }
 
 .loader {
-    border: 24px solid lightgray;
+    border: 16px solid lightgray;
     border-radius: 50%;
-    border-top: 24px solid #3498db;
-    width: 24px;
-    height: 24px;
+    border-top: 16px solid #3498db;
+    width: 16px;
+    height: 16px;
     -webkit-animation: spin 2s linear infinite;  
     animation: spin 2s linear infinite;
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 45%;
     z-index: 9999;
   }
   
@@ -106,3 +106,18 @@
     font-weight: bold;
     transition: 0.3s ease-in-out;
 }
+
+/* responsive styles start here */
+@media (max-width: 768px) {
+    .logo {
+        width: 125px;
+    }
+    .navbar ul {
+        margin-right: 10px;
+    }
+    .navbar ul li {
+        margin: 0 5px;
+        font-size: .7em;
+    }
+}
+/* responsive styles end here */

@@ -15,6 +15,20 @@ map.on('click', function(e){
     console.log("You clicked the map at latitude and longitude: " + lat + ", " + lng);
 });
 
+
+
+// Set bounds on map for markers to be displayed
+// var corner1 = L.latLng(70.31873847853124, -141.94335937500003),
+// corner2 = L.latLng(41.902277040963696, -34.89257812500001),
+// bounds = L.latLngBounds(corner1, corner2);
+
+// map.fitBounds([
+//   [70.31873847853124, -141.94335937500003],
+//   [41.902277040963696, -34.89257812500001]
+// ]);
+
+
+
 async function flightsData() {
   const apiResponse = await fetch('https://opensky-network.org/api/states/all');
   const result = await apiResponse.json();
@@ -35,6 +49,22 @@ async function displayTotalFlights(counts) {
   //Display number of total flights using a div id
   document.getElementById('total').innerHTML = await totalResults;
 }
+
+
+
+// countUp display total number animation (id, starting point, ending point, decimal, duration)
+// var options = {
+//   useEasing: true,
+//   separator: ';'
+// };
+// var countUp = new CountUp('#total', 0, counts, 0, 5, options);
+// if (!countUp.error) {
+//   countUp.start(document.getElementById('total').innerHTML = await totalResults);
+// } else {
+//   console.error(countUp.error);
+// }
+
+
 
 //displayTotalFlights(flightsCount(flightsData()));
 
