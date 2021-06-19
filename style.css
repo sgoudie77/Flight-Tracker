@@ -4,12 +4,38 @@
     width: 24px;
 }
 
+.loader {
+    border: 16px solid lightgray;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 16px;
+    height: 16px;
+    -webkit-animation: spin 2s linear infinite;  
+    animation: spin 2s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    z-index: 9999;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
 #map {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
+    z-index: 9999;
 }
 #stats {
     position: absolute;
@@ -25,6 +51,12 @@
     padding-right: .5em;
     border-radius: 15px;
 }
+
+/* .leaflet-control-container { 
+    position: absolute; 
+    bottom: 11em; 
+    left: .5em;
+} */
 
 .nav_item {
     position: relative;
@@ -42,7 +74,6 @@
 }
 
 .logo {
-    /* width: 150px; */
     margin-left: 1em;
     cursor: pointer;
     margin-top: 0;
@@ -72,5 +103,21 @@
 
 .navbar ul li a:hover {
     color: blue;
+    font-weight: bold;
     transition: 0.3s ease-in-out;
 }
+
+/* responsive styles start here */
+@media (max-width: 768px) {
+    .logo {
+        width: 125px;
+    }
+    .navbar ul {
+        margin-right: 10px;
+    }
+    .navbar ul li {
+        margin: 0 5px;
+        font-size: .7em;
+    }
+}
+/* responsive styles end here */

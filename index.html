@@ -12,6 +12,9 @@
     <!-- set div for leaflet map -->
     <div id="map"></div>
     
+    <!-- loader to display while wating for API to fetch and display data -->
+    <div class="loader" id="loader"></div>
+
     <!-- navbar section -->
     <div class="navbar">
         <a href="#"><img class="logo nav-item" src="logo.png" alt="logo"></a>
@@ -26,9 +29,11 @@
 
     <!-- total number of flights displayed -->
     <div>
-        <p id="stats">Total Flights Tracked: <span id="total"></span></p>
+        <p id="stats">Total Flights Tracked: <span id='total'></span></p>
     </div>
+    
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="countUp.min.js" type="module"></script>
     <script src="script.js"></script>
 </body>
 </html>
