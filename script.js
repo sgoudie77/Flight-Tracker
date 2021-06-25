@@ -30,13 +30,13 @@ map.on('click', function(e){
 // ]);
 
 
-
+// Fetch API data
 async function flightsData() {
   const apiResponse = await fetch('https://opensky-network.org/api/states/all');
   const result = await apiResponse.json();
   return await result.states;
 }
-
+// Get total length of objects in the array
 async function flightsCount(data) {
   const counts = await data.length;
   console.log(counts);

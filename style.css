@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
 
+
+
 /* Leaflet map styles start here */
 #map {
     position: absolute;
@@ -61,7 +63,7 @@
 }
 
 .logo {
-    margin-left: 1em;
+    margin-left: .45em;
     cursor: pointer;
     margin-top: 0;
     position: relative;
@@ -103,7 +105,6 @@
     z-index: 9999;
     background-color: #ffffff;
     opacity: 0.9;
-    /* padding: .4em; */
     font-family: 'Michroma', sans-serif;
     padding-bottom: .2em;
     padding-left: .5em;
@@ -120,7 +121,7 @@
 #refresh {
     position: absolute;
     bottom: .3em;
-    right: 1em;
+    right: .3em;
     z-index: 9999;
     background-color: #ffffff;
     opacity: 0.9;

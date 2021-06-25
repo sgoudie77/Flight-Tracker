@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Tracker</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="container" id="flights">
+        <!-- navbar section starts here -->
+        <div class="navbar">
+            <a href="index.html"><img class="logo nav-item" src="logo.png" alt="logo"></a>
+            <nav>
+                <ul>
+                    <li><a class="nav_item" href="flights.html">Flights</a></li>
+                    <li><a class="nav_item" href="airports.html">Airports</a></li>
+                    <li><a class="nav_item" href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- search box -->
+        <div class="search-box-flights">
+            <input type="text" placeholder="Search by flight number (e.g. AC9621)">
+        </div>
+
+        <!-- search result main -->
+        <div class="flight-result">
+            <div><h3 id="airline-pad">Airline: <span class="main-text">British Airways</span></h3></div>
+            <div><h3>Flight Number: <span class="main-text">AC9876</span></h3></div>
+        </div>
+        
+        <!-- search results details -->
+        <div class="search-flights-wrapper">
+            <div class="info-title box1">Departure</div>
+            <div class="info-title box2">Arrival</div>
+            <div class="info box3">Airport: <span id="dep-airport"></span></div>
+            <div class="info box4">Airport: <span id="arr-airport"></span></div>
+            <div class="info box5">Date: <span id="date"></span></div>
+            <div class="info box6">Arrival Time: <span id="eta"></span></div>
+            <div class="info box7">Terminal: <span id="dep-terminal"></span></div>
+            <div class="info box8">Terminal: <span id="arr-terminal"></span></div>
+            <div class="info box9">Status:  <span id="status"></span></div>
+            <div class="info box10">Baggage: <span id="bag"></span></div>
+            <div class="info box11">Delay: <span id="dep-delay"></span></div>
+            <div class="info box12">Delay: <span id="arr-delay"></span></div>
+        </div>
+
+        <!-- lower image -->
+        <div class="lower-img" >
+            <img src="logo.png" alt="">
+        </div>
+        
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+
+/* global styles start here */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* global styles end here */
+
+/* Navbar styles start here */
+.nav_item {
+    position: relative;
+    z-index: 9999;
+}
+
+.navbar {
+    width: 95%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.25em;
+    margin-bottom: 2em;
+}
+
+.logo {
+    margin-left: 1em;
+    cursor: pointer;
+    margin-top: 0;
+    position: relative;
+    z-index: 9999;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    transition: 0.5s ease;
+}
+
+.navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #000000;
+    font-family: 'Michroma', sans-serif;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.navbar ul li a:hover {
+    color: blue;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+}
+/* Navbar styles end here */
+
+/* flights styles start here */
+.container {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#flights {
+    background-image: url(ac-bg2.jpg);
+}
+
+#airports {
+    background-image: url(ap-bg2.jpg);
+}
+
+#about {
+    background-image: url(about-bg.jpg);
+}
+
+  /* input search styles start here */
+.search-box-flights,
+.search-box-airports {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.search-box-flights input,
+.search-box-airports input {
+    position: relative;
+    width: 91.5%;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    outline: none;
+    color: #000000;
+    opacity: 0.8;
+    font-family: 'Michroma', sans-serif;
+    padding-left: 7px;
+}
+  /* input search styles start here */
+
+  /* title result styles start here */
+.flight-result {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
+}
+
+.flight-result h3 {
+    font-family: 'Michroma', sans-serif;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#airline-pad {
+    margin-right: 2em;
+}
+
+.main-text, .airport-text {
+    color: #ffffff;
+}
+  /* title result styles end here */
+
+  /* grid styles for result boxes start here */
+.search-flights-wrapper {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 8em;
+    row-gap: 2em;
+    justify-items: center;
+    margin-top: 2em;
+}
+
+.info-title, .airport-name {
+    font-family: 'Michroma', sans-serif;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.info {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    padding-left: 7px;
+    padding-bottom: 3px;
+    width: 94%;
+    height: 30px;
+    border-radius: 5px;
+    outline: none;
+    color: black;
+    opacity: 0.8;
+    font-family: 'Michroma', sans-serif;
+    border: 1px solid #000000;
+    box-shadow: 0 0 5px 3px rgba(0,0,0,0.3);
+}
+
+.box1, .box2 {
+    position: relative;
+    display: flex;
+    justify-self: start;
+    width: auto;
+}
+
+.box1 {
+    padding-left: 11.5%;
+}
+
+.box2 {
+    margin-left: -3%;
+}
+
+.box3, .box5, .box7, .box9, .box11 {
+    margin-left: 15%;
+}
+
+.box4, .box6, .box8, .box10, .box12 {
+    margin-right: 15%;
+}
+  /* grid styles for result boxes end here */
+
+.lower-img {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+    opacity: 0.5;
+}
+
+.lower-img img {
+    width: 250px;
+}
+
+.inv {
+    filter: invert(1);
+    margin-top: .8em;
+}
+  /* flights styles end here */
+
+/* airports page styles start here*/
+.search-airports-wrapper {
+    position: relative;
+    display: flex;
+    width: 91.5%;
+    height: 55vh;
+    margin: 0 auto;
+    margin-top: 2em;
+    max-height: 75vh;
+    overflow-y: scroll;
+    background-color: #ffffff;
+    border-radius: 10px;
+    opacity: 0.7;
+    font-family: 'Michroma', sans-serif;
+    border: 1px solid #000000;
+    box-shadow: 0 0 10px 5px rgba(0,0,0,0.3);
+}
+
+.search-airports-wrapper h5 {
+    padding-left: 7px;
+}
+
+.airport-name {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+h5{
+    padding-top: .3em;
+    margin-left: .3em;
+}
+
+.ap-pad {
+    padding-right: 3.5em;
+    padding-left: 7px;
+}
+
+hr {
+    margin-top: .3em;
+    margin-bottom: .3em;
+}
+/* airports page styles end here*/
+
+/* about page styles start here*/
+.container .help-info {
+    position: relative;
+    display: block;
+    width: 91.5%;
+    height: auto;
+    margin: 0 auto;
+    max-height: 75vh;
+    overflow-y: scroll;
+    background-color: #ffffff;
+    border-radius: 10px;
+    opacity: 0.7;
+    font-family: 'Michroma', sans-serif;
+    border: 1px solid #000000;
+    box-shadow: 0 0 10px 5px rgba(0,0,0,0.3);
+}
+
+.help-info h3, .help-info h4 {
+    padding-top: .7em;
+    padding-left: .5em;
+}
+
+.help-info p {
+    padding-left: .5em;
+}
+
+#about-img {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+/* about page styles end here*/
+
+/* customized scrollbar styles start here */
+::-webkit-scrollbar {
+    width: 13px;
+    height: 13px;
+    }
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    }
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    }
+/* customized scrollbar styles end here */
+
+/* responsive styles start here */
+@media (max-width: 768px) {
+    .logo {
+        width: 125px;
+    }
+    .navbar ul {
+        margin-right: 10px;
+    }
+    .navbar ul li {
+        margin: 0 5px;
+        font-size: .7em;
+    }
+}
+/* responsive styles end here */

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Tracker</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="container" id="airports">
+        <!-- navbar section -->
+        <div class="navbar">
+            <a href="index.html"><img class="logo nav-item" src="logo.png" alt="logo"></a>
+            <nav>
+                <ul>
+                    <li><a class="nav_item" href="flights.html">Flights</a></li>
+                    <li><a class="nav_item" href="airports.html">Airports</a></li>
+                    <li><a class="nav_item" href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- search box -->
+        <div class="search-box-airports">
+            <input type="text" placeholder="Search by airport name or code (e.g. YYZ)">
+        </div>
+
+        <!-- search results title -->
+        <div class="airport-name"><h3>Airport Name: <span class="airport-text">Name of Airport Here</span></h3></div>
+
+        <!-- search results details -->
+        <div class="search-airports-wrapper">
+                <h5>
+                    Callsign: <span class="ap-pad" id="ap-airline-callsign">Callsign</span> 
+                    Airline: <span class="ap-pad" id="ap-airline-name">Airline Name</span>
+                    Dep Time: <span class="ap-pad" id="ap-dep-time">Departure Time</span>
+                    Arr Airport: <span class="ap-pad" id="ap-arr-airport">Arrival Airport</span>
+                    Arr Time: <span class="ap-pad" id="ap-arr-time">Arr Time</span>
+                    <hr>
+                </h5>    
+        </div>
+
+        <!-- lower logo -->
+        <div class="lower-img inv" >
+            <img src="logo.png" alt="">
+        </div>
+
+    </div>
+
+</body>
+</html>
