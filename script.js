@@ -30,32 +30,39 @@ map.on('click', function(e){
 // ]);
 
 
-
+// Fetch API data
 async function flightsData() {
   const apiResponse = await fetch('https://opensky-network.org/api/states/all');
   const result = await apiResponse.json();
   return await result.states;
 }
-
+// Get total length of objects in the array
 async function flightsCount(data) {
   const counts = await data.length;
   console.log(counts);
   document.getElementById("loader").style.display = 'none';
+
+  // Delay showing the refresh button until the page loads 
+  setTimeout(showLatest, 5000);
+  function showLatest() {
+    document.getElementById('latest').style.opacity = 1;
+  }
+
   return await counts;
 }
 
 async function displayTotalFlights(counts) {
   //Set variable for total flights
   const totalResults = await counts;
-  // countUp display total number animation (id, starting point, ending point, decimal, duration)
+  //countUp display total number animation
   const options = {
     startVal: 0,
     decimalPlaces: 0,
-    duration: 5,
+    duration: 8,
     useEasing: true,
-    separator: ';',
-
+    separator: ',',
   };
+  
   const countUp = new CountUp('total', await totalResults, options);
   console.log(countUp);
   if (!countUp.error) {
@@ -65,11 +72,21 @@ async function displayTotalFlights(counts) {
   }
 }
 
+//document.getElementById('total').innerHTML = await totalResults;
+//displayTotalFlights(flightsCount(flightsData()));
+
 //Set the icon for each flight reporting data
 var aircraftTracked = L.icon ({
   iconUrl: 'ac-black.png',
   iconSize: [18, 12]
 });
+
+// Set the icon for mouseover
+var aircraftHover = L.icon ({
+  iconUrl: 'ac-blue.png',
+  iconSize: [18, 12] 
+});
+
 
 async function displayMarkers(data) {
   //Loop through the array and set an icon for each flight using the lat and lon coords of each object
@@ -77,7 +94,9 @@ async function displayMarkers(data) {
   for (let i = 0; i < data.length; i++) {
     if (data[i][5] != null && data[i][6] != null) {
       let displayedFlight = new L.marker([data[i][6],data[i][5]], {icon: aircraftTracked}).addTo(map)
-      .bindPopup(data[i][1],data[i][2],data[i][7]);
+      .bindPopup(`<p>Flight Number: ${data[i][1]}</p>
+                  <p>Origin Country: ${data[i][2]}</p>
+                  <p>Altitude: ${ Math.floor(data[i][7] * 3.28084) } feet</p>`);
     } else {
       noCoordinates++;
     }
@@ -94,3 +113,8 @@ async function displayFlightsandTotal() {
 }
 
 displayFlightsandTotal();
+
+// Refresh Button to reload and get latest API data
+document.getElementById("refresh").addEventListener("click", function () {
+  displayFlightsandTotal();
+});

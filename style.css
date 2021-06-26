@@ -1,9 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
 
-.aircraft {
-    width: 24px;
-}
 
+
+/* Leaflet map styles start here */
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+    /* Leaflet zoom control styles */
+/* .leaflet-control-container { 
+    position: absolute; 
+    bottom: 11em; 
+    left: .5em;
+} */
+/* Leaflet map styles end here */
+
+/* Page loader styles while fetching API data start here */
 .loader {
     border: 16px solid lightgray;
     border-radius: 50%;
@@ -16,48 +32,21 @@
     top: 50%;
     left: 45%;
     z-index: 9999;
-  }
+}
   
   /* Safari */
-  @-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-  }
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
   
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-
-#map {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 9999;
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
-#stats {
-    position: absolute;
-    bottom: 0;
-    left: 1em;
-    z-index: 9999;
-    background-color: #ffffff;
-    opacity: 0.8;
-    /* padding: .4em; */
-    font-family: 'Michroma', sans-serif;
-    padding-bottom: .2em;
-    padding-left: .5em;
-    padding-right: .5em;
-    border-radius: 15px;
-}
+/* Page loader styles while fetching API data end here */
 
-/* .leaflet-control-container { 
-    position: absolute; 
-    bottom: 11em; 
-    left: .5em;
-} */
-
+/* Navbar styles start here */
 .nav_item {
     position: relative;
     z-index: 9999;
@@ -74,7 +63,7 @@
 }
 
 .logo {
-    margin-left: 1em;
+    margin-left: .45em;
     cursor: pointer;
     margin-top: 0;
     position: relative;
@@ -106,6 +95,44 @@
     font-weight: bold;
     transition: 0.3s ease-in-out;
 }
+/* Navbar styles end here */
+
+/* Display to show total flights reported start here */
+#stats {
+    position: absolute;
+    bottom: 0;
+    left: 1em;
+    z-index: 9999;
+    background-color: #ffffff;
+    opacity: 0.9;
+    font-family: 'Michroma', sans-serif;
+    padding-bottom: .2em;
+    padding-left: .5em;
+    padding-right: .5em;
+    border-radius: 15px;
+}
+/* Display to show total flights reported end here */
+
+/* Refresh button styles start here */
+#latest {
+    opacity: 0;
+}
+
+#refresh {
+    position: absolute;
+    bottom: .3em;
+    right: .3em;
+    z-index: 9999;
+    background-color: #ffffff;
+    opacity: 0.9;
+    font-family: 'Michroma', sans-serif;
+    padding-bottom: .2em;
+    padding-left: .5em;
+    padding-right: .5em;
+    border-radius: 15px;
+    cursor: pointer;
+}
+/* Refresh button styles end here */
 
 /* responsive styles start here */
 @media (max-width: 768px) {
