@@ -113,3 +113,8 @@ async function displayFlightsandTotal() {
 }
 
 displayFlightsandTotal();
+
+// Refresh Button to reload and get latest API data
+document.getElementById("refresh").addEventListener("click", function () {
+  displayFlightsandTotal();
+});
