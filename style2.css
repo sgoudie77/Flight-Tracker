@@ -59,18 +59,7 @@
 }
 /* Navbar styles end here */
 
-/* flights styles start here */
-.container {
-    width: 100vw;
-    height: 100vh;
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
+/* Background images for each page start here */
 #flights {
     background-image: url(ac-bg2.jpg);
 }
@@ -82,10 +71,23 @@
 #about {
     background-image: url(about-bg.jpg);
 }
+/* Background images for each page end here */
 
-  /* input search styles start here */
-.search-box-flights,
-.search-box-airports {
+/* Flights page styles start here */
+.container {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+  /* flght input search styles start here */
+  .search-box-flights,
+  .search-box-airports {
     position: relative;
     display: flex;
     justify-content: center;
@@ -94,19 +96,38 @@
 .search-box-flights input,
 .search-box-airports input {
     position: relative;
-    width: 91.5%;
+    width: 88.5%;
     height: 30px;
-    border-radius: 5px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     background-color: #ffffff;
     outline: none;
+    border: 1px solid #000000;
     color: #000000;
     opacity: 0.8;
     font-family: 'Michroma', sans-serif;
     padding-left: 7px;
+    padding-bottom: 2px;
 }
-  /* input search styles start here */
 
-  /* title result styles start here */
+.search-box-flights button,
+  .search-box-airports button {
+      width: 3%;
+      background-color: #000000;
+      border: none;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      padding-bottom: 2px;
+      cursor: pointer;
+  }
+
+.fa {
+    font-size: 1.2em;
+    filter: invert(1);
+}
+  /* flight input search styles end here */
+
+  /* flight title result styles start here */
 .flight-result {
     position: relative;
     display: flex;
@@ -129,69 +150,57 @@
 .main-text, .airport-text {
     color: #ffffff;
 }
-  /* title result styles end here */
+  /* flight title result styles end here */
 
-  /* grid styles for result boxes start here */
+  /* flights search result container styles start here */
 .search-flights-wrapper {
     position: relative;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 8em;
-    row-gap: 2em;
-    justify-items: center;
+    display: flex;
+    justify-content: center;
+    width: 91%;
+    height: 50vh;
+    margin: 0 auto;
     margin-top: 2em;
+    overflow-y: scroll;
+    background-color: #ffffff;
+    border-radius: 10px;
+    opacity: 0.7;
+    font-family: 'Michroma', sans-serif;
+    border: 1px solid #000000;
+    box-shadow: 0 0 10px 5px rgba(0,0,0,0.3);
 }
 
-.info-title, .airport-name {
+.departure, .arrival {
+    font-family: 'Michroma', sans-serif;
+    
+    width: 100%;
+    padding-left: .9em;
+}
+
+.departure h4, .arrival h4 {
+    text-transform: uppercase;
+    margin-bottom: .5em;
+    margin-top: .5em;
+}
+
+hr {
+    width: 97.5%;
+}
+
+.departure p, .arrival p {
+    margin-bottom: .75em;
+}
+
+.airport-name {
     font-family: 'Michroma', sans-serif;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     font-size: 1em;
     font-weight: bold;
 }
+  /* flights search result container styles start here */
 
-.info {
-    position: relative;
-    display: flex;
-    align-items: center;
-    background-color: #ffffff;
-    padding-left: 7px;
-    padding-bottom: 3px;
-    width: 94%;
-    height: 30px;
-    border-radius: 5px;
-    outline: none;
-    color: black;
-    opacity: 0.8;
-    font-family: 'Michroma', sans-serif;
-    border: 1px solid #000000;
-    box-shadow: 0 0 5px 3px rgba(0,0,0,0.3);
-}
-
-.box1, .box2 {
-    position: relative;
-    display: flex;
-    justify-self: start;
-    width: auto;
-}
-
-.box1 {
-    padding-left: 11.5%;
-}
-
-.box2 {
-    margin-left: -3%;
-}
-
-.box3, .box5, .box7, .box9, .box11 {
-    margin-left: 15%;
-}
-
-.box4, .box6, .box8, .box10, .box12 {
-    margin-right: 15%;
-}
-  /* grid styles for result boxes end here */
-
+  /* bottom logo styles start here */
 .lower-img {
     position: relative;
     display: flex;
@@ -208,7 +217,8 @@
     filter: invert(1);
     margin-top: .8em;
 }
-  /* flights styles end here */
+  /* bottom logo styles end here */
+/* Flights page styles end here */
 
 /* airports page styles start here*/
 .search-airports-wrapper {
@@ -292,15 +302,15 @@ hr {
 ::-webkit-scrollbar {
     width: 13px;
     height: 13px;
-    }
+}
 ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     border-radius: 10px;
-    }
+}
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-    }
+}
 /* customized scrollbar styles end here */
 
 /* responsive styles start here */
