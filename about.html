@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="style2.css">
 </head>
 <body>
-    <div class="container" id="about">
-        <!-- navbar section -->
+    <div class="container">
+        <!-- navbar section starts here -->
         <div class="navbar">
             <a href="index.html"><img class="logo nav-item" src="logo.png" alt="logo"></a>
+            <div class="toggle" onclick="toggleMenu();"></div>
             <nav>
-                <ul>
+                <ul class="navigation">
                     <li><a class="nav_item" href="flights.html">Flights</a></li>
                     <li><a class="nav_item" href="airports.html">Airports</a></li>
                     <li><a class="nav_item" href="about.html">About</a></li>
@@ -21,23 +22,38 @@
             </nav>
         </div>
 
+        <!-- hero section -->
+        <div id="about">
+            <h1>How to use this site</h1>
+        </div>
+
+        <!-- text section below hero -->
+        <div class="about-subtitle">
+            <h2>Read user information below</h2>
+        </div>
+
         <!-- information section -->
-        <div class="help-info">
-            <h3>How to use this site</h3>
-            <h4>Homepage</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam odit provident minus ratione ab dignissimos consectetur rem sit tempora nisi distinctio voluptatum sunt magnam voluptates repudiandae, dolorem odio ex quos velit tenetur, facilis labore quisquam nihil. Facere praesentium ipsam facilis optio magnam eum nisi, adipisci perferendis molestias, similique quasi voluptatem?</p>
-            <h4>Flight Search</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam odit provident minus ratione ab dignissimos consectetur rem sit tempora nisi distinctio voluptatum sunt magnam voluptates repudiandae, dolorem odio ex quos velit tenetur, facilis labore quisquam nihil. Facere praesentium ipsam facilis optio magnam eum nisi, adipisci perferendis molestias, similique quasi voluptatem?</p>
-            <h4>Airport Search</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae unde id mollitia repellendus repellat minus magnam quas ipsam nihil dignissimos? Ad, porro! Vitae dolorem, adipisci illum magni, officiis, similique harum necessitatibus modi praesentium aliquam laborum id non consectetur sit natus quas esse autem porro debitis. Maxime vero architecto amet quam.</p>
-            <h4>Important Note</h4>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis omnis in ea laudantium quidem animi sunt temporibus suscipit harum, ratione magni fuga voluptatibus nostrum cumque, velit aperiam id numquam? Impedit hic beatae, neque nesciunt, tenetur in libero itaque nam rerum repudiandae quae dignissimos dolorem culpa possimus saepe facilis, tempore quos?</p>
-            <div id="about-img">
-                <a title="Back to Homepage" href="index.html"><img id="about-logo" src="logo.png" alt=""></a>
+        <div class="information-wrapper">
+            <div class="information">
+                <h3>How to use this site</h3>
+                <h4>Homepage</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam odit provident minus ratione ab dignissimos consectetur rem sit tempora nisi distinctio voluptatum sunt magnam voluptates repudiandae, dolorem odio ex quos velit tenetur, facilis labore quisquam nihil. Facere praesentium ipsam facilis optio magnam eum nisi, adipisci perferendis molestias, similique quasi voluptatem?</p>
+                <h4>Flight Search</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam odit provident minus ratione ab dignissimos consectetur rem sit tempora nisi distinctio voluptatum sunt magnam voluptates repudiandae, dolorem odio ex quos velit tenetur, facilis labore quisquam nihil. Facere praesentium ipsam facilis optio magnam eum nisi, adipisci perferendis molestias, similique quasi voluptatem?</p>
+                <h4>Airport Search</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae unde id mollitia repellendus repellat minus magnam quas ipsam nihil dignissimos? Ad, porro! Vitae dolorem, adipisci illum magni, officiis, similique harum necessitatibus modi praesentium aliquam laborum id non consectetur sit natus quas esse autem porro debitis. Maxime vero architecto amet quam.</p>
+                <h4>Important Note</h4>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis omnis in ea laudantium quidem animi sunt temporibus suscipit harum, ratione magni fuga voluptatibus nostrum cumque, velit aperiam id numquam? Impedit hic beatae, neque nesciunt, tenetur in libero itaque nam rerum repudiandae quae dignissimos dolorem culpa possimus saepe facilis, tempore quos?</p>
             </div>
+        </div>
+
+        <!-- lower logo -->
+        <div class="lower-img" >
+            <img title="Back to top" src="logo.png" alt="">
         </div>
 
     </div>
 
+    <script src="script2.js"></script>
 </body>
 </html>

@@ -9,12 +9,13 @@
     <link rel="stylesheet" href="style2.css">
 </head>
 <body>
-    <div class="container" id="flights">
+    <div class="container" >
         <!-- navbar section starts here -->
         <div class="navbar">
             <a href="index.html"><img class="logo nav-item" src="logo.png" alt="logo"></a>
+            <div class="toggle" onclick="toggleMenu();"></div>
             <nav>
-                <ul>
+                <ul class="navigation">
                     <li><a class="nav_item" href="flights.html">Flights</a></li>
                     <li><a class="nav_item" href="airports.html">Airports</a></li>
                     <li><a class="nav_item" href="about.html">About</a></li>
@@ -22,27 +23,31 @@
             </nav>
         </div>
 
+        <!-- hero section -->
+        <div id="flights">
+            <h1>Search Any Flight<br>For Latest Information</h1>
+        </div>
+
         <!-- search box -->
         <div class="search-box-flights">
             <input type="text" placeholder="Search by flight number (e.g. AC9621)">
             <button><i class="fa fa-search"></i></button>
-            <!-- <i class="fa fa-search"></i> -->
-            <!-- <button class="search-box"><i class="fa fa-search" aria-hidden="true"></i></button> -->
         </div>
 
         <!-- search result main -->
         <div class="flight-result">
-            <div><h3 id="airline-pad">Airline: <span class="main-text" id="airline-title">British Airways</span></h3></div>
-            <div><h3>Flight: <span class="main-text" id="flight-number">BA9876</span></h3></div>
+            <div><h3 id="airline-pad">Airline: <span id="airline-title">British Airways</span></h3></div>
+            <div><h3>Flight: <span id="flight-number">BA9876</span></h3></div>
         </div>
         
         <!-- search results details -->
         <div class="search-flights-wrapper">
-            <div class="departure">
-                <h4>Departure</h4>
+            <!-- departure information section -->
+            <div class="flights-departure">
+                <h4><img class="pl-icon" src="departure.png" alt=""> Departure</h4>
                 <hr>
                 <p>Airport: <span id="dep-airport"></span></p>
-                <p>Timezone: <span id="dep-tz"></span></p>
+                <!-- <p>Timezone: <span id="dep-tz"></span></p> -->
                 <p>Terminal: <span id="dep-terminal"></span></p>
                 <p>Gate: <span id="dep-gate"></span></p>
                 <p>Status:  <span id="status"></span></p>
@@ -50,11 +55,14 @@
                 <p>Actual Time: <span id="dep-time-act"></span></p>
                 <p>Delay: <span id="dep-delay"></span></p>
             </div>
-            <div class="arrival">
-                <h4>Arrival</h4>
+        </div>
+        <div class="search-flights-wrapper">
+            <!-- arrival information section -->
+            <div class="flights-arrival">
+                <h4><img class="pl-icon" src="arrival.png" alt=""> Arrival</h4>
                 <hr>
                 <p>Airport: <span id="arr-airport"></span></p>
-                <p>Timezone: <span id="arr-tz"></span></p>
+                <!-- <p>Timezone: <span id="arr-tz"></span></p> -->
                 <p>Terminal: <span id="arr-terminal"></span></p>
                 <p>Gate: <span id="arr-gate"></span></p>
                 <p>Baggage: <span id="bag"></span></p>
@@ -66,7 +74,7 @@
 
         <!-- lower logo -->
         <div class="lower-img" >
-            <img src="logo.png" alt="">
+            <img title="Back to top" src="logo.png" alt="">
         </div>
         
     </div>

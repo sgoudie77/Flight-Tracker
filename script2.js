@@ -40,8 +40,8 @@ function displayResultsFlights (data) {
     let departureAirport = document.querySelector('#dep-airport');
     departureAirport.innerText = `${data.departure[0]}`;
 
-    let departureTimezone = document.querySelector('#dep-tz');
-    departureTimezone.innerText = `${data.departure[1]}`;
+    // let departureTimezone = document.querySelector('#dep-tz');
+    // departureTimezone.innerText = `${data.departure[1]}`;
 
     let departureTerminal = document.querySelector('#dep-terminal');
     departureTerminal.innerText = `${data.departure[4]}`
@@ -65,8 +65,8 @@ function displayResultsFlights (data) {
     let arrivalAirport = document.querySelector('#arr-airport');
     arrivalAirport.innerText = `${data.arrival[0]}`;
 
-    let arrivalTimezone = document.querySelector('#arr-tz');
-    arrivalTimezone.innerText = `${data.arrival[1]}`;
+    // let arrivalTimezone = document.querySelector('#arr-tz');
+    // arrivalTimezone.innerText = `${data.arrival[1]}`;
 
     let arrivalTerminal = document.querySelector('#arr-terminal');
     arrivalTerminal.innerText = `${data.arrival[4]}`;
@@ -85,4 +85,23 @@ function displayResultsFlights (data) {
 
     let arrivalDelay = document.querySelector('#arr-delay');
     arrivalDelay.innerText = `${data.arrival[7]}minutes`;
+}
+
+// Convert date and time string to new format for display
+var dateFormat = new Date(`${data.departure[7]}`).toLocaleDateString("sq-AL",{ 
+    weekday: 'short',
+    year: 'numeric', 
+    month: 'short', 
+    day: '2-digit', 
+    hour: '2-digit', 
+    minute: '2-digit', 
+    timeZoneName: 'short' 
+});
+
+// hamburger menu toggle
+function toggleMenu(){
+    var menuToggle = document.querySelector('.toggle');
+    var navigation = document.querySelector('.navigation');
+    menuToggle.classList.toggle('active');
+    navigation.classList.toggle('active');
 }

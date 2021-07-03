@@ -1,5 +1,6 @@
 import { CountUp } from './countUp.min.js';
-
+import { rotatedMarker } from './leaflet.rotatedMarker.js';
+import { Marker } from 'leaflet';
 // Set the starting map position and zoom ([lat, lon], zoom-level)
 var map = L.map('map').setView([58.63121664342478, -93.77929687500001], 4);
 
@@ -87,7 +88,6 @@ var aircraftHover = L.icon ({
   iconSize: [18, 12] 
 });
 
-
 async function displayMarkers(data) {
   //Loop through the array and set an icon for each flight using the lat and lon coords of each object
   let noCoordinates = 0;
@@ -96,7 +96,7 @@ async function displayMarkers(data) {
       let displayedFlight = new L.marker([data[i][6],data[i][5]], {icon: aircraftTracked}).addTo(map)
       .bindPopup(`<p>Flight Number: ${data[i][1]}</p>
                   <p>Origin Country: ${data[i][2]}</p>
-                  <p>Altitude: ${ Math.floor(data[i][7] * 3.28084) } feet</p>`);
+                  <p>Altitude: ${ Math.floor(data[i][7] * 3.28084) } feet</p>`);  
     } else {
       noCoordinates++;
     }
@@ -115,6 +115,14 @@ async function displayFlightsandTotal() {
 displayFlightsandTotal();
 
 // Refresh Button to reload and get latest API data
-document.getElementById("refresh").addEventListener("click", function () {
+document.getElementById("refresh").onclick = function reloadData() {
   displayFlightsandTotal();
-});
+};
+
+// hamburger menu toggle
+function toggleMenu(){
+  var menuToggle = document.querySelector('.toggle');
+  var navigation = document.querySelector('.navigation');
+  menuToggle.classList.toggle('active');
+  navigation.classList.toggle('active');
+}

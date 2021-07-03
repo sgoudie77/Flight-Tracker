@@ -21,7 +21,7 @@
     align-items: center;
     justify-content: space-between;
     padding-top: 1.25em;
-    margin-bottom: 2em;
+    margin-bottom: 1.5em;
 }
 
 .logo {
@@ -61,42 +61,78 @@
 
 /* Background images for each page start here */
 #flights {
-    background-image: url(ac-bg2.jpg);
-}
-
-#airports {
-    background-image: url(ap-bg2.jpg);
-}
-
-#about {
-    background-image: url(about-bg.jpg);
-}
-/* Background images for each page end here */
-
-/* Flights page styles start here */
-.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100vw;
-    height: 100vh;
+    height: 72vh;
     max-width: 100%;
     margin: 0;
     padding: 0;
+    background-image: url(ac-bg2.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
+#airports {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 72vh;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url(ap-bg2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#flights h1,
+#airports h1,
+#about h1 {
+    font-family: 'Michroma', sans-serif;
+    color: #ffffff;
+    letter-spacing: 2px;
+    font-weight: 200;
+}
+
+#about {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 72vh;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url(about-bg.jpg);
+    background-position: center .05em;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/* Background images for each page end here */
+
+/* Flights page styles start here */
   /* flght input search styles start here */
   .search-box-flights,
   .search-box-airports {
     position: relative;
     display: flex;
     justify-content: center;
+    margin-top: 2em;
 }
 
 .search-box-flights input,
 .search-box-airports input {
     position: relative;
-    width: 88.5%;
+    display: flex;
+    width: 30%;
     height: 30px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -108,18 +144,25 @@
     font-family: 'Michroma', sans-serif;
     padding-left: 7px;
     padding-bottom: 2px;
+    margin-bottom: .5em;
 }
 
 .search-box-flights button,
-  .search-box-airports button {
+.search-box-airports button {
       width: 3%;
+      height: 30px;
       background-color: #000000;
       border: none;
       border-top-right-radius: 10px;
       border-bottom-right-radius: 10px;
       padding-bottom: 2px;
       cursor: pointer;
-  }
+}
+
+.pl-icon {
+    width: 12px;
+    margin-right: .3em;
+}
 
 .fa {
     font-size: 1.2em;
@@ -146,33 +189,28 @@
 #airline-pad {
     margin-right: 2em;
 }
-
-.main-text, .airport-text {
-    color: #ffffff;
-}
   /* flight title result styles end here */
 
   /* flights search result container styles start here */
 .search-flights-wrapper {
     position: relative;
     display: flex;
-    justify-content: center;
-    width: 91%;
-    height: 50vh;
+    width: 55%;
+    height: 35vh;
     margin: 0 auto;
     margin-top: 2em;
+    max-height: 75vh;
     overflow-y: scroll;
     background-color: #ffffff;
     border-radius: 10px;
     opacity: 0.7;
     font-family: 'Michroma', sans-serif;
     border: 1px solid #000000;
-    box-shadow: 0 0 10px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 0 5px 3px rgba(0,0,0,0.3);
 }
 
 .departure, .arrival {
     font-family: 'Michroma', sans-serif;
-    
     width: 100%;
     padding-left: .9em;
 }
@@ -205,17 +243,12 @@ hr {
     position: relative;
     display: flex;
     justify-content: center;
-    margin-top: 2em;
-    opacity: 0.5;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
 }
 
 .lower-img img {
-    width: 250px;
-}
-
-.inv {
-    filter: invert(1);
-    margin-top: .8em;
+    width: 175px;
 }
   /* bottom logo styles end here */
 /* Flights page styles end here */
@@ -224,8 +257,8 @@ hr {
 .search-airports-wrapper {
     position: relative;
     display: flex;
-    width: 91.5%;
-    height: 55vh;
+    width: 60%;
+    height: 35vh;
     margin: 0 auto;
     margin-top: 2em;
     max-height: 75vh;
@@ -235,43 +268,74 @@ hr {
     opacity: 0.7;
     font-family: 'Michroma', sans-serif;
     border: 1px solid #000000;
-    box-shadow: 0 0 10px 5px rgba(0,0,0,0.3);
-}
-
-.search-airports-wrapper h5 {
-    padding-left: 7px;
+    box-shadow: 0 0 5px 3px rgba(0,0,0,0.3);
 }
 
 .airport-name {
     position: relative;
     display: flex;
     justify-content: center;
-    margin-top: 2em;
+    margin-top: 1.5em;
 }
 
-h5{
-    padding-top: .3em;
-    margin-left: .3em;
+.flights-departure, .flights-arrival,
+.airport-departures, .airport-arrivals,
+.information {
+    width: 100%;
+    padding-top: .5em;
+    padding-left: .9em;
+}
+
+.group-title, .group-info {
+    position: relative;
+    display: flex;
+}
+
+.group-title h5 {
+    margin-right: 2em;
+}
+
+.flights-departure p, .flights-arrival p,
+.airport-departures p, .airport-arrivals p {
+    position: relative;
+    font-size: .9em;
+    margin-right: 2em;
+    margin-bottom: .7em;
+}
+
+.flights-departure p, .flights-arrival p {
+    margin-bottom: .7em;
 }
 
 .ap-pad {
-    padding-right: 3.5em;
-    padding-left: 7px;
+    font-size: .9em;
 }
 
 hr {
-    margin-top: .3em;
-    margin-bottom: .3em;
+    margin-top: .5em;
+    margin-bottom: .5em;
 }
 /* airports page styles end here*/
 
 /* about page styles start here*/
-.container .help-info {
+.about-subtitle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 1.9em;
+}
+
+.about-subtitle h2 {
+    font-family: 'Michroma', sans-serif;
+}
+
+.information-wrapper {
     position: relative;
     display: block;
-    width: 91.5%;
-    height: auto;
+    width: 60%;
+    height: 79vh;
     margin: 0 auto;
+    margin-top: 2em;
     max-height: 75vh;
     overflow-y: scroll;
     background-color: #ffffff;
@@ -279,15 +343,20 @@ hr {
     opacity: 0.7;
     font-family: 'Michroma', sans-serif;
     border: 1px solid #000000;
-    box-shadow: 0 0 10px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 0 5px 3px rgba(0,0,0,0.3);
 }
 
-.help-info h3, .help-info h4 {
+.information {
+    padding-bottom: 1.1em;
+    padding-right: 1em;
+}
+
+.information h3, .information h4 {
     padding-top: .7em;
     padding-left: .5em;
 }
 
-.help-info p {
+.information p {
     padding-left: .5em;
 }
 
@@ -314,6 +383,52 @@ hr {
 /* customized scrollbar styles end here */
 
 /* responsive styles start here */
+@media (max-width: 991px) {
+    /* menu toggle styles start here */
+    .navbar nav ul {
+        display: none;
+    }
+    .toggle {
+        position: fixed;
+        right: 45px;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        background: url(menu.png);
+        background-size: 30px;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: invert(1);
+        z-index: 11;
+    }
+    .toggle.active {
+        position: fixed;
+        right: 45px;
+        background: url(close.png);
+        background-size: 25px;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .navbar nav ul.navigation.active {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: #ffffff;
+        z-index: 10;
+    }
+    .navbar nav ul.navigation.active li {
+        padding: 20px;
+        font-size: 1.5em;
+    }
+    /* menu toggle styles end here */
+}
+
 @media (max-width: 768px) {
     .logo {
         width: 125px;
