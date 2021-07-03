@@ -18,8 +18,9 @@
     <!-- navbar section -->
     <div class="navbar">
         <a href="index.html"><img class="logo nav-item" src="logo.png" alt="logo"></a>
+        <div class="toggle" onclick="toggleMenu();"></div>
         <nav>
-            <ul>
+            <ul class="navigation">
                 <li><a class="nav_item" href="flights.html">Flights</a></li>
                 <li><a class="nav_item" href="airports.html">Airports</a></li>
                 <li><a class="nav_item" href="about.html">About</a></li>
@@ -34,9 +35,10 @@
     
     <!-- refresh button -->
     <div id="latest">
-        <p id="refresh">Refresh</p>
+        <button id="refresh">Refresh</button>
     </div>
 
+    <!-- <script src="leaflet.rotatedMarker.js"></script> -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="script.js" type="module"></script>
 </body>

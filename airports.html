@@ -5,15 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flight Tracker</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style2.css">
 </head>
 <body>
-    <div class="container" id="airports">
+    <div class="container" >
+        
         <!-- navbar section -->
         <div class="navbar">
             <a href="index.html"><img class="logo nav-item" src="logo.png" alt="logo"></a>
+            <div class="toggle" onclick="toggleMenu();"></div>
             <nav>
-                <ul>
+                <ul class="navigation">
                     <li><a class="nav_item" href="flights.html">Flights</a></li>
                     <li><a class="nav_item" href="airports.html">Airports</a></li>
                     <li><a class="nav_item" href="about.html">About</a></li>
@@ -21,32 +24,67 @@
             </nav>
         </div>
 
+        <!-- hero section -->
+        <div id="airports">
+            <h1>Search Any Airport<br>Anywhere, Anytime</h1>
+        </div>
+
         <!-- search box -->
         <div class="search-box-airports">
-            <input type="text" placeholder="Search by airport name or code (e.g. YYZ)">
+            <input type="text" placeholder="Airport Name, City, or Airport Code (e.g. YYZ)">
+            <button><i class="fa fa-search"></i></button>
         </div>
 
         <!-- search results title -->
-        <div class="airport-name"><h3>Airport Name: <span class="airport-text">Name of Airport Here</span></h3></div>
+        <div class="airport-name"><h3>Airport: <span>Getting Airport Info...</span></h3></div>
 
         <!-- search results details -->
         <div class="search-airports-wrapper">
-                <h5>
-                    Dep Time: <span class="ap-pad" id="ap-dep-time">Departure Time</span>
-                    Airline: <span class="ap-pad" id="ap-airline-name">Airline Name</span>
-                    Callsign: <span class="ap-pad" id="ap-airline-callsign">Callsign</span> 
-                    Arr Airport: <span class="ap-pad" id="ap-arr-airport">Arrival Airport</span>
-                    Arr Time: <span class="ap-pad" id="ap-arr-time">Arr Time</span>
-                    <hr>
-                </h5>    
+            <!-- departures information section -->
+            <div class="airport-departures">
+                <h4><img class="pl-icon" src="departure.png" alt=""> Departures</h4>
+                <hr>
+                <div class="group-title">
+                    <h5>Airline</h5>
+                    <h5>Flight</h5>
+                    <h5>Date and Time</h5>
+                    <h5>Delay</h5>
+                </div>
+                <div class="group-info">
+                    <p><span class="ap-pad" id="ap-dep-airline-name">American Airlines</span></p>
+                    <p><span class="ap-pad" id="ap-dep-flight-number">AA1004</span></p>
+                    <p><span class="ap-pad" id="ap-dep-time">Wed, Dec 11, 2019, 08:20 PM PST</span></p>
+                    <p><span class="ap-pad" id="ap-dep-delay">33 min.</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="search-airports-wrapper">
+            <!-- arrivals information section -->
+            <div class="airport-arrivals">
+                <h4><img class="pl-icon" src="arrival.png" alt=""> Arrivals</h4>
+                <hr>
+                <div class="group-title">
+                    <h5>Airline</h5>
+                    <h5>Flight</h5>
+                    <h5>Date and Time</h5>
+                    <h5>Delay</h5>
+                </div>
+                <div class="group-info">
+                    <p><span class="ap-pad" id="ap-arr-airline-name">American Airlines</span></p>
+                    <p><span class="ap-pad" id="ap-arr-flight-number">AA1004</span></p>
+                    <p><span class="ap-pad" id="ap-arr-dep-time">Wed, Dec 11, 2019, 08:20 PM PST</span></p>
+                    <p><span class="ap-pad" id="ap-arr-delay">33 min.</span></p>
+                </div>
+            </div>
         </div>
 
         <!-- lower logo -->
-        <div class="lower-img inv" >
-            <img src="logo.png" alt="">
+        <div class="lower-img" >
+            <img title="Back to top" src="logo.png" alt="">
         </div>
 
     </div>
 
+    <script src="script2.js"></script>
 </body>
 </html>
