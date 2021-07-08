@@ -1,6 +1,5 @@
 import { CountUp } from './countUp.min.js';
-import { rotatedMarker } from './leaflet.rotatedMarker.js';
-import { Marker } from 'leaflet';
+
 // Set the starting map position and zoom ([lat, lon], zoom-level)
 var map = L.map('map').setView([58.63121664342478, -93.77929687500001], 4);
 
@@ -119,10 +118,3 @@ document.getElementById("refresh").onclick = function reloadData() {
   displayFlightsandTotal();
 };
 
-// hamburger menu toggle
-function toggleMenu(){
-  var menuToggle = document.querySelector('.toggle');
-  var navigation = document.querySelector('.navigation');
-  menuToggle.classList.toggle('active');
-  navigation.classList.toggle('active');
-}
