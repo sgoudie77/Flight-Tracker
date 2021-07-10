@@ -9,19 +9,23 @@ searchbox.addEventListener('keypress', setQueryFlights);
 
 // Search button linked to flights search bar
 document.querySelector('.search-box-flights button').addEventListener('click', function () {
-    if (searchbox.value == data.flight[1]) {
-    getResults(searchbox.value);
+    if (searchbox.value == data.flight[1] && data == "") {
+        return airlineName.innerText = `<p>no result found</p>`;
+    } else if (searchbox.value == data.flight[1]) {
+        getResults();
     }
 });
 
 // Get results when enter key is pressed in flights search
 function setQueryFlights(e) {
-    if (e.keyCode == 13 && searchbox.value == data.flight[1]) {
-        getResults(searchbox.value);
+    if (e.keyCode == 13 && data == "")  {
+        return airlineName.innerText = `<p>no result found</p>`;
+    } else if (e.keyCode == 13 && searchbox.value == data.flight[1]) {
+        getResults();
     }
 }
 
-// Fetch request to the API tp get the data
+// Fetch request to the API to get the data
 function getResults (query) {
     fetch(`${api.base}?access_key=${api.key}`).then(data => {
         return data.json();
@@ -40,11 +44,8 @@ function displayResultsFlights (data) {
     let departureAirport = document.querySelector('#dep-airport');
     departureAirport.innerText = `${data.departure[0]}`;
 
-    // let departureTimezone = document.querySelector('#dep-tz');
-    // departureTimezone.innerText = `${data.departure[1]}`;
-
     let departureTerminal = document.querySelector('#dep-terminal');
-    departureTerminal.innerText = `${data.departure[4]}`
+    departureTerminal.innerText = `${data.departure[4]}`;
 
     let departureGate = document.querySelector('#dep-gate');
     departureGate.innerText = `${data.departure[5]}`;
@@ -64,9 +65,6 @@ function displayResultsFlights (data) {
     // arrival info section
     let arrivalAirport = document.querySelector('#arr-airport');
     arrivalAirport.innerText = `${data.arrival[0]}`;
-
-    // let arrivalTimezone = document.querySelector('#arr-tz');
-    // arrivalTimezone.innerText = `${data.arrival[1]}`;
 
     let arrivalTerminal = document.querySelector('#arr-terminal');
     arrivalTerminal.innerText = `${data.arrival[4]}`;

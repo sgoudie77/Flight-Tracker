@@ -17,19 +17,6 @@ map.on('click', function(e){
     console.log("You clicked the map at latitude and longitude: " + lat + ", " + lng);
 });
 
-
-
-// Set bounds on map for markers to be displayed
-// var corner1 = L.latLng(70.31873847853124, -141.94335937500003),
-// corner2 = L.latLng(41.902277040963696, -34.89257812500001),
-// bounds = L.latLngBounds(corner1, corner2);
-
-// map.fitBounds([
-//   [70.31873847853124, -141.94335937500003],
-//   [41.902277040963696, -34.89257812500001]
-// ]);
-
-
 // Fetch API data
 async function flightsData() {
   const apiResponse = await fetch('https://opensky-network.org/api/states/all');
@@ -72,9 +59,6 @@ async function displayTotalFlights(counts) {
   }
 }
 
-//document.getElementById('total').innerHTML = await totalResults;
-//displayTotalFlights(flightsCount(flightsData()));
-
 //Set the icon for each flight reporting data
 var aircraftTracked = L.icon ({
   iconUrl: 'ac-black.png',
@@ -91,7 +75,7 @@ async function displayMarkers(data) {
   //Loop through the array and set an icon for each flight using the lat and lon coords of each object
   let noCoordinates = 0;
   for (let i = 0; i < data.length; i++) {
-    if (data[i][5] != null && data[i][6] != null) {
+    if (data[i][5] != null && data[i][6] != null && (data[i][2] === 'Canada')) {
       let displayedFlight = new L.marker([data[i][6],data[i][5]], {icon: aircraftTracked}).addTo(map)
       .bindPopup(`<p>Flight Number: ${data[i][1]}</p>
                   <p>Origin Country: ${data[i][2]}</p>
@@ -100,7 +84,14 @@ async function displayMarkers(data) {
       noCoordinates++;
     }
   }
-  console.log(`There are ${noCoordinates} that don't have coordinates.`)
+  console.log(`There are ${noCoordinates} that don't have coordinates.`);
+  
+  // let filteredFlights = displayedFlight.filter(flightsInCanada => {data[i][2] === 'Canada'});
+
+  function getAngle() {
+    document.querySelector(L.icon).style.transform = `rotate(${data[i][10]}deg)`;
+  }
+  getAngle();
 }
 
 //Finds flight total and display markers
@@ -117,11 +108,3 @@ displayFlightsandTotal();
 document.getElementById("refresh").onclick = function reloadData() {
   displayFlightsandTotal();
 };
-
-// hamburger menu toggle
-function toggleMenu(){
-  var menuToggle = document.querySelector('.toggle');
-  var navigation = document.querySelector('.navigation');
-  menuToggle.classList.toggle('active');
-  navigation.classList.toggle('active');
-}

@@ -38,6 +38,15 @@
         <button id="refresh">Refresh</button>
     </div>
 
+    <script>
+        // hamburger menu toggle
+        function toggleMenu(){
+        var menuToggle = document.querySelector('.toggle');
+        var navigation = document.querySelector('.navigation');
+        menuToggle.classList.toggle('active');
+        navigation.classList.toggle('active');
+        }
+    </script>
     <!-- <script src="leaflet.rotatedMarker.js"></script> -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="script.js" type="module"></script>
