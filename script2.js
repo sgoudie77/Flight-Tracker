@@ -1,10 +1,10 @@
 // Set variables for api
 //let url = 'http://api.aviationstack.com/v1/flights',
-  //  qString = '?access_key=' + '046713ea22076c597022482282a4f711'
+//  qString = '?access_key=' + '046713ea22076c597022482282a4f711'
 
 // Set variable for the flight searchbox input
 //const searchboxFlight = document.querySelector('.search-box-flights');
-//searchboxFlight.addEventListener('keypress', getFlightQuery);
+// searchboxFlight.addEventListener('keypress', getFlightQuery);
 
 // Search button linked to flights search bar
 // document.querySelector('.search-box-flights button').addEventListener('click', function () {
@@ -177,20 +177,21 @@ function toggleMenu(){
 //     }).then(displayResultsFlights);
 // }
 
+let flightSearchQuery = document.querySelector("#flight-search-query");
+
 let flight = {
-    qString: '?access_key=' + '046713ea22076c597022482282a4f711',
     fetchFlight: function() {
         fetch(
-            'http://api.aviationstack.com/v1/flights' + this.qString
+            `http://api.aviationstack.com/v1/flights?access_key=046713ea22076c597022482282a4f711&flight_iata=${flightSearchQuery.value}`
         )
         .then((response) => response.json())
-        .then((data) => this.displayFlight(data));
-    },
-    displayFlight: function(data) {
-        const { name } = data;
-        const { iata } = data.flight;
-        console.log(name,iata);
-        document.getElementById('airline-title').innerText = name;
-        document.getElementById('flight-number').innerText = iata;
+        .then((data) => {
+            console.log(data);
+            const { name } = data.data[0].airline;
+            const { iata } = data.data[0].flight;
+            console.log(name, iata);
+            document.getElementById('airline-title').innerText = name;
+            document.getElementById('flight-number').innerText = iata;
+        })
     }
 };
